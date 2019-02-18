@@ -1,0 +1,6 @@
+For this project I need:
+Tensorflow nn to process the digits
+Cropping tool to crop the portion i want
+Border Overlay so the user can align the form
+
+In this folder I will create these function individual to test here
