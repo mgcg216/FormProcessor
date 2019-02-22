@@ -6,12 +6,11 @@ from matplotlib.image import imread
 
 def main():
 
-
     # Constants
     WIDTH = 480
     HEIGHT = 640
     BOXH = 100 # Box Height
-    BOXW = 70 # Box Width
+    BOXW = 70  # Box Width
 
     # Initialize Webcam
     cap = cv2.VideoCapture(0)
@@ -19,12 +18,10 @@ def main():
     ret = cap.set(4, HEIGHT)
 
     # Load Model and start session
-    model = tf.keras.models.load_model('MnistModel_2.h5')
+    model = tf.keras.models.load_model('MnistModel_3.h5')
 
     # Processes items
-    # coor_box = [[100, 200, 300, 400, 500], [150, 150, 150, 150, 150]]  # x, y
     coor_box = [[100, 170, 240, 310, 380], [150, 150, 150, 150, 150]]  # x, y
-
 
     def preImg(inp):
         re = cv2.bitwise_not(inp)
@@ -77,9 +74,6 @@ def main():
 
         # Our operations on the frame
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        # newgray = cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_MEAN_C,\
-        #     cv2.THRESH_BINARY,11,2)
-        # cv2.imshow("gau", newgray)
 
         # Crop and Make black and white
         result, see = cropper(gray, coor_box, borw=True, threzero=False)
